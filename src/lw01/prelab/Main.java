@@ -9,13 +9,10 @@ public class Main {
     public static void main(String[] args) {
         List<PrintJob> jobs = new ArrayList<>();
 
-        try (InputStream inputStream = Main.class.getResourceAsStream("jobs.txt");
-             Scanner scanner = new Scanner(inputStream)) {
+             Scanner scanner = new Scanner(Main.class.getResourceAsStream("jobs.txt")); {
             
-            if (inputStream == null) {
-                System.out.println("Error: jobs.txt not found.");
-                return;
-            }
+            
+            
 
             while (scanner.hasNext()) {
                 String type = scanner.next();
@@ -23,16 +20,16 @@ public class Main {
                 int pages = scanner.nextInt();
 
                 if (type.equals("MONO")) {
-                    jobs.add(new MonoPrint(id, pages));
-                } else if (type.equals("COLOUR")) {
-                    jobs.add(new ColourPrint(id, pages));
+                    jobs = new MonoPrint(id, pages));
+                } else {
+                    jobs = new ColourPrint(id, pages);
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error: jobs.txt not found.");
-            return;
-        }
 
+            jobs.add(job);
+        } 
+
+        scanner.close();
         for (PrintJob job : jobs) {
             System.out.println(job.summary());
         }

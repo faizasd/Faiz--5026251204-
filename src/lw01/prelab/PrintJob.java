@@ -30,7 +30,7 @@ public abstract class PrintJob implements Chargeable {
         return copies * calculateCharge();
     }
 
-    public abstract String label();
+    public String label();
 
     public final String summary() {
         return id + " | " + label() + " | " + calculateCharge();
