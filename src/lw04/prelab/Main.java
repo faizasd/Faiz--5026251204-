@@ -35,7 +35,7 @@ public class Main {
         }
         System.out.println();
         
-        for (int i = 0; i < m; i++) {
+        for (int i= 0; i < m; i++) {
             int target = targets[i];
             int foundIndex = -1;
             
